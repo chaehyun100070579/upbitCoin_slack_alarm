@@ -117,8 +117,8 @@ while True:
 
     if len(sorted_lowCoinDataSet) > 0:
         if(ts != 0):
-            deleteSlackMsg('xoxb-2064848250944-2037984649381-ApdZvVf3ShllLVkjuCCnytmX', 'C02177QA751', ts)
+            deleteSlackMsg('your token id', 'your channel id', ts)
             # time.sleep(0.3)
-        ts = sendAlert('xoxb-2064848250944-2037984649381-ApdZvVf3ShllLVkjuCCnytmX', '#coin-analaysis', sorted_lowCoinDataSet)
+        ts = sendAlert('your token id', '#your-channel-name', sorted_lowCoinDataSet)
     time.sleep(180)
 
