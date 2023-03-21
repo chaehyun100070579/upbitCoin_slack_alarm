@@ -61,7 +61,7 @@ def get_cci(candle_data):
         # 계산식 : (Typical Price - Simple Moving Average) / (0.015 * Mean absolute Deviation)
         ordered_df['TP'] = (ordered_df['high_price'] + ordered_df['low_price'] + ordered_df['trade_price']) / 3
         ordered_df['SMA'] = ordered_df['TP'].rolling(window=20).mean()
-        ordered_df['MAD'] = ordered_df['TP'].rolling(window=20).apply(lambda x: pd.Series(x).mad())
+        ordered_df['MAD'] = ordered_df['TP'].rolling(window=20).apply(lambda x: (pd.Series(x) - pd.Series(x).mean()).abs().mean())
         ordered_df['CCI'] = (ordered_df['TP'] - ordered_df['SMA']) / (0.015 * ordered_df['MAD'])
 
         # 개수만큼 조립
